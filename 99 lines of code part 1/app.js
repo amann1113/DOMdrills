@@ -1,38 +1,44 @@
-let Friends = [
-    'Austin',
-    'Jonathan',
-    'Braden',
-    'Nick',
-    'Bradley',
-]
+document.addEventListener('DOMContentLoaded', function(){
 
-for (let j = 0; j < Friends.length; j++) {
+    
+    let friends = ['Austin', 'Jonathan', 'Braden', 'Nick', 'Bradley',]
+    let button = document.getElementsByTagName('button'); 
+   
+   button.addEventListener('click', function () {
+    for (let j = 0; j < Friends.length; ++j) {
 
-    function Songbuilder(songline, nextLine, lineText) {
-        console.log(songLine + ' ' + lineText + ' of code in the file, ' + songLine + ' ' + lineText + ' of code; ' + Friends[j] + ' strikes one out, clears it all out, ' + nextLine + ' lines of code in the file.');
+        
+    const div = document.createElement('div');
+        div.className = "friend";
+
+        let name = friends[j];
+        const h3 = document.createElement('h3')
+        let h3Text = document.createTextNode(name);
+        h3.appendChild(h3text);
+        div.appendChild(h3);
+
+        for (let i = 99; i > 0; i--) {
+            let line = i - 1;
+            if (i == 1){
+
+                let p = document.createElement('p');
+                let ptext = document.createTextNode(i + ' line of code in the file, ' + i + ' line of code; ' + name + ' strikes one out, clears it all out, 0 lines of code in the file.');
+                p.appendChild(pText);
+                div.appendChild(p);
+            } else if (i == 2) {
+                let p = document.createElement('p');
+                let pText = document.createTextNode(i + ' line of code in the file, ' + i + ' line of code; ' + name + ' strikes one out, clears it all out, ' + line + ' lines of code in the file.')
+            } else {
+                let p = document.createElement('p');
+                let pText = document.createTextNode(i + ' line of code in the file, ' + i + ' line of code; ' + name + ' strikes one out, clears it all out, ' + line + ' lines of code in the file.')
+                p.appendChild(pText);
+                div.appendChild(p);
+            }
+        };
+            
+        document.body.appendChild(div);
+
+        
     };
-
-    for (let i = 1; i < 100; i++) {
-
-        var so ngLine = 100 - i;
-
-        var nextLine = songLine - 1;
-
-        if (songLine > 1) {
-
-            lineText = 'lines';
-
-        }
-
-        else {
-
-            lineText = 'line';
-
-        }
-
-        Songbuilder(songLine, nextLine, lineText);
-    }
-};
-
-
-
+})
+})
